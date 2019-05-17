@@ -37,9 +37,9 @@ export const getSmurfs = () => dispatch => {
       })
     })
 }
-export const ADD_SMURFS_START = 'ADD_SMURFS_START';
-export const ADD_SMURFS_SUCCESS = 'ADD_SMURFS_SUCCESS';
-export const ADD_SMURFS_ERROR = 'ADD_SMURFS_ERROR';
+export const ADD_SMURF_START = 'ADD_SMURFS_START';
+export const ADD_SMURF_SUCCESS = 'ADD_SMURFS_SUCCESS';
+export const ADD_SMURF_ERROR = 'ADD_SMURFS_ERROR';
 
 export const addSmurf = smurf => dispatch => {
   dispatch({ type: ADD_SMURF_START });
@@ -50,7 +50,7 @@ export const addSmurf = smurf => dispatch => {
     })
     .catch(err => {
       dispatch({
-        type: ADD_FRIEND_ERROR, payload: err.response })
+        type: ADD_SMURF_ERROR, payload: err.response })
     })
 
 }
