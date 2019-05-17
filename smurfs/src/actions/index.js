@@ -13,3 +13,44 @@
    U - updateSmurf
    D - deleteSmurf
 */
+
+import axios from 'axios';
+
+export const FETCH_SMURFS_START = 'FETCH_SMURFS_START';
+export const FETCH_SMURFS_SUCCESS = 'FETCH_SMURFS_SUCCESS';
+export const FETCH_SMURFS_ERROR = 'FETCH_SMURFS_ERROR';
+
+export const getSmurfs = () => dispatch => {
+  dispatch ({ type: FETCH_SMURFS_START });
+  axios
+    .get('http://localhost:3333/smurfs')
+    .then(res => {
+      console.log(res.data.results)
+      console.log(getSmurfs)
+      dispatch({ type: FETCH_SMURFS_SUCCESS, payload: res.data.results });
+    })
+    .catch(err => {
+      console.log(err.response);
+      dispatch({
+        type:FETCH_SMURFS_ERROR,
+        payload: 'null'
+      })
+    })
+}
+export const ADD_SMURFS_START = 'ADD_SMURFS_START';
+export const ADD_SMURFS_SUCCESS = 'ADD_SMURFS_SUCCESS';
+export const ADD_SMURFS_ERROR = 'ADD_SMURFS_ERROR';
+
+export const addSmurf = smurf => dispatch => {
+  dispatch({ type: ADD_SMURF_START });
+  return axios
+    .post('http://localhost:3333/smurfs')
+    .then(res => {
+      dispatch({ type: ADD_SMURF_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({
+        type: ADD_FRIEND_ERROR, payload: err.response })
+    })
+
+}
