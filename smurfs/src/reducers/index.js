@@ -31,7 +31,7 @@ import {
   ADD_SMURF_ERROR,
 } from '../actions'
 
-const intitalState = {
+const initialState = {
   smurfs: [],
   counter: 1,
   fetchingSmurfs: false,
