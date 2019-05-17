@@ -6,9 +6,7 @@ import Smurf from './Smurf'
 
 
 class SmurfList extends React.Component {
-  constructor() {
-      super();
-  }
+
 
   componentDidMount() {
     this.props.getSmurfs();
