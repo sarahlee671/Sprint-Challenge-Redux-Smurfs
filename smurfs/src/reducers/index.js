@@ -56,7 +56,7 @@ function reducer(state = initialState, action) {
     case FETCH_SMURFS_ERROR:
       return {
         ...state,
-        error: action.payload.data.error,
+        error: action.payload,
         fetchingSmurfs: false
       };
     case ADD_SMURF_START:
